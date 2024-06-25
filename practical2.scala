@@ -64,12 +64,17 @@ object demo {
     return 85 * x;
   }
 
-  def tax(x: Int, y: Int): Double = {
-    return (x+y)*0.12;
+  def totalBeforeTax(x: Int, y: Int): Double = {
+    return normalHours(x) + otHours(y);
+  }
+
+  def tax(x: Double): Double = {
+    return x*0.12;
   }
 
   def totalAmount(nh: Int, ot: Int): Double = {
-    var totalAmount = normalHours(nh) + otHours(ot) + tax(nh, ot);
+    var res = totalBeforeTax(nh, ot);
+    var totalAmount = res + tax(res);
     return totalAmount;
   }
 
