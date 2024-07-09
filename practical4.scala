@@ -39,10 +39,8 @@ object demo {
     patternMatch(i);
 
     //Question 3
-    // Test inputs and outputs
     val namesList = List("Benny", "Niroshan", "Saman", "Kumara");
 
-    // Formatting each name according to the specified output
     val formattedNames = namesList.map {
       case "Benny" => formatNames("Benny")(toUpper)
       case "Niroshan" =>
@@ -52,10 +50,9 @@ object demo {
       case "Kumara" =>
         val firstFiveLowerLastUpper = "Kumar".toLowerCase + "A".toUpperCase
         formatNames(firstFiveLowerLastUpper)(identity)
-      case other => other // Default case to handle unexpected names
+      case other => other
     }
 
-    // Print the formatted names
     formattedNames.foreach(println)
 
   }
@@ -100,17 +97,14 @@ object demo {
   }
 
   //Question 3
-  // Method to convert a string to uppercase
   def toUpper(name: String): String = {
     name.toUpperCase()
   }
 
-  // Method to convert a string to lowercase
   def toLower(name: String): String = {
     name.toLowerCase()
   }
 
-  // Method to format names using a provided function
   def formatNames(name: String)(formatFunction: String => String): String = {
     formatFunction(name)
   }
